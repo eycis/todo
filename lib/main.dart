@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +18,14 @@ class MyApp extends StatelessWidget {
         appBar: buildAppBar(),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          child: Column(
-            children: searchBox(),
-          ),
+          child: Column(children: [
+            ...searchBox(),
+            //...TodoItem(),
+          ]
+              //ListView(
+              //  children: [Container()],
+              //)
+              ),
         ),
       ),
     );
