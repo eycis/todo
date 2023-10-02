@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
 
 class TodoItem extends StatelessWidget {
-  const TodoItem({key? key}) : super(key: key);
+  const TodoItem({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { // TODO(eycis): tady se mi líbí že jsi něco zkoušela oddělit ale zase do presentation/widgets a něco
     return Container(
       child: ListTile(
         onTap: () {
-          print('Clicked on todo item')
+          print('Clicked on todo item');
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -22,7 +21,7 @@ class TodoItem extends StatelessWidget {
         ),
         title: Text(
           'first try',
-          style: TextStyle(
+          style: TextStyle( // TODO(eycis): vyčlenit jak jsem psal na stránce zpět
             fontSize: 15,
             color: Colors.white,
             decoration: TextDecoration.lineThrough,
@@ -40,7 +39,7 @@ class TodoItem extends StatelessWidget {
             iconSize: 18,
             icon: Icon(Icons.delete),
             onPressed: () {
-              print('clicked on onpressed')
+              print('clicked on onpressed');
             },
           ),
         ),

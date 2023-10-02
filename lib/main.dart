@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: Scaffold( // TODO(eycis): tohle sem nepatří home by měla být nějaká hlavní stránka ve složce pages respektive presentation/pages
         backgroundColor: Colors.black,
         appBar: buildAppBar(),
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), // TODO(eycis): tohle ti opatří linter :D (to budou všechny ty hezký modrý chyby)
           child: Column(children: [
             ...searchBox(),
             //...TodoItem(),
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  List<Widget> searchBox() {
+  List<Widget> searchBox() { // TODO(eycis): Tohle už bude nějaký konkrétní widget doporučuju složku presentation/widgets a napříkla search_input.dart zabalit to do stles nebo stfull widgetu
     return [
       Container(
         padding: EdgeInsets.symmetric(horizontal: 15),
@@ -58,12 +58,12 @@ class MyApp extends StatelessWidget {
     ];
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar() { // TODO(eycis): zase konkretní stles widget s stleswidget implements PreferredSizeWidget.... presentation/widgets/appbar/home_appbar.dart nebo whatever: D
     return AppBar(
       backgroundColor: Colors.black,
       title: Text(
         'ToDo List',
-        style: TextStyle(
+        style: TextStyle( // TODO(eycis): používané styly jako barvy text styly atp. vyčlenit do config/constants/palette.dart a config/constants/text_styles.dart
           color: Colors.white,
           fontSize: 30,
         ),
