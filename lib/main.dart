@@ -13,10 +13,43 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.black,
-          appBar: buildAppBar(),
-          body: Container()),
+        backgroundColor: Colors.black,
+        appBar: buildAppBar(),
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          child: Column(
+            children: searchBox(),
+          ),
+        ),
+      ),
     );
+  }
+
+  List<Widget> searchBox() {
+    return [
+      Container(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        decoration: BoxDecoration(
+            color: Colors.grey, borderRadius: BorderRadius.circular(20)),
+        child: TextField(
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.only(top: 5, left: 30),
+            prefixIcon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 20,
+            ),
+            prefixIconConstraints: BoxConstraints(
+              maxHeight: 20,
+              maxWidth: 25,
+            ),
+            border: InputBorder.none,
+            hintText: 'Add a new item',
+            hintStyle: TextStyle(color: Colors.black),
+          ),
+        ),
+      ),
+    ];
   }
 
   AppBar buildAppBar() {
@@ -53,7 +86,7 @@ class MyApp extends StatelessWidget {
         ),
         Spacer(),
         Container(
-          padding: EdgeInsets.only(left: 18),
+          padding: EdgeInsets.only(right: 16),
           child: Icon(
             Icons.add,
             color: Colors.white,
