@@ -11,35 +11,56 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowMaterialGrid: false,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              ),
-              Spacer(),
-              Container(
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              ),
-            ],
-          ),
-        ),
-        body: Container(
-          child: Text('mainscreen'),
+          appBar: buildAppBar(),
+          body: Container()),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.black,
+      title: Text(
+        'ToDo List',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 30,
         ),
       ),
+      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //children: [
+      actions: [
+        Container(
+          padding: EdgeInsets.only(left: 16),
+          child: Icon(
+            Icons.menu,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        Spacer(),
+        Container(
+          padding: EdgeInsets.only(top: 8),
+          child: Text(
+            'ToDo List',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+          ),
+        ),
+        Spacer(),
+        Container(
+          padding: EdgeInsets.only(left: 18),
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+      ],
     );
   }
 }
