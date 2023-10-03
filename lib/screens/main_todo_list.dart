@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:todo/model/todo.dart';
 import 'package:todo/screens/styles.dart';
 
 class TodoItem extends StatelessWidget {
-  const TodoItem({super.key});
+
+  const ToDoItem(this.todo, [Key? key]) : super(key: key);
+
+  final Todo todo;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 10),
       child: ListTile(
         onTap: () {
           print('Clicked on todo item');
@@ -30,16 +35,16 @@ class TodoItem extends StatelessWidget {
           ),
         ),
         trailing: Container(
-          padding: EdgeInsets.all(0),
-          margin: EdgeInsets.symmetric(vertical: 12),
+          padding: const EdgeInsets.all(0),
+          margin: const EdgeInsets.symmetric(vertical: 12),
           height: 35,
           width: 35,
           decoration: BoxDecoration(
               color: white, borderRadius: BorderRadius.circular(5)),
           child: IconButton(
-            color: white,
+            color: red,
             iconSize: 18,
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
             onPressed: () {
               print('clicked on onpressed');
             },

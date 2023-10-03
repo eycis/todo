@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 //import 'screens/main_todo_list.dart';
 import 'screens/main_screen.dart';
+import 'package:todo/model/todo.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  MyApp({Key? key});
+
+  final todoslist = Todo.todoList();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: MainScreen(todosList: todoslist),
     );
   }
 }
