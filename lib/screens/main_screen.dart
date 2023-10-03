@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/screens/app_bar.dart';
 import 'package:todo/screens/search_box.dart';
+import 'package:todo/screens/styles.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key});
@@ -8,8 +9,8 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: CustomAppBar(),
+      backgroundColor: black,
+      appBar: const CustomAppBar(),
       body: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,

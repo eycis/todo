@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/screens/styles.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key}) : super(key: key);
@@ -6,11 +7,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.black,
+      backgroundColor: black,
       title: const Text(
         'ToDo List',
         style: TextStyle(
-          color: Colors.white,
+          color: white,
           fontSize: 30,
         ),
       ),
@@ -19,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.only(left: 16),
           child: const Icon(
             Icons.menu,
-            color: Colors.white,
+            color: white,
             size: 30,
           ),
         ),
@@ -29,7 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: const Text(
             'ToDo List',
             style: TextStyle(
-              color: Colors.white,
+              color: white,
               fontSize: 24,
             ),
           ),
@@ -39,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.only(right: 16),
           child: const Icon(
             Icons.add,
-            color: Colors.white,
+            color: white,
             size: 30,
           ),
         ),

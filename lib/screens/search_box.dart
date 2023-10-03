@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/screens/styles.dart';
 
 class SearchBox extends StatelessWidget {
   const SearchBox({Key? key});
@@ -8,7 +9,7 @@ class SearchBox extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: grey,
         borderRadius: BorderRadius.circular(20),
       ),
       child: const TextField(
@@ -16,7 +17,7 @@ class SearchBox extends StatelessWidget {
           contentPadding: EdgeInsets.only(top: 5, left: 30),
           prefixIcon: Icon(
             Icons.search,
-            color: Colors.black,
+            color: black,
             size: 20,
           ),
           prefixIconConstraints: BoxConstraints(
@@ -25,7 +26,7 @@ class SearchBox extends StatelessWidget {
           ),
           border: InputBorder.none,
           hintText: 'Add a new item',
-          hintStyle: TextStyle(color: Colors.black),
+          hintStyle: TextStyle(color: black),
         ),
       ),
     );
