@@ -4,7 +4,8 @@ class TodoItem extends StatelessWidget {
   const TodoItem({super.key});
 
   @override
-  Widget build(BuildContext context) { // TODO(eycis): tady se mi líbí že jsi něco zkoušela oddělit ale zase do presentation/widgets a něco
+  Widget build(BuildContext context) {
+    // TODO(eycis): tady se mi líbí že jsi něco zkoušela oddělit ale zase do presentation/widgets a něco
     return Container(
       child: ListTile(
         onTap: () {
@@ -13,15 +14,16 @@ class TodoItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         tileColor: Colors.grey,
-        leading: Icon(
+        leading: const Icon(
           Icons.check_box,
           color: Colors.white,
         ),
-        title: Text(
+        title: const Text(
           'first try',
-          style: TextStyle( // TODO(eycis): vyčlenit jak jsem psal na stránce zpět
+          style: TextStyle(
+            // TODO(eycis): vyčlenit jak jsem psal na stránce zpět
             fontSize: 15,
             color: Colors.white,
             decoration: TextDecoration.lineThrough,
