@@ -3,10 +3,9 @@ import 'package:todo/model/todo.dart';
 import 'package:todo/screens/styles.dart';
 
 class TodoItem extends StatelessWidget {
+  // const ToDoItem(this.todo, [Key? key]) : super(key: key);
 
-  const ToDoItem(this.todo, [Key? key]) : super(key: key);
-
-  final Todo todo;
+  //final Todo todo;
 
   @override
   Widget build(BuildContext context) {

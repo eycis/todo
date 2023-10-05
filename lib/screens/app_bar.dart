@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:todo/screens/styles.dart';
+import 'package:todo/screens/main_screen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+  final int listCount;
+
+  CustomAppBar({Key? key, required this.listCount});
 
   @override
   Widget build(BuildContext context) {
@@ -16,33 +19,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        Container(
-          padding: const EdgeInsets.only(left: 16),
-          child: const Icon(
-            Icons.menu,
-            color: white,
-            size: 30,
-          ),
-        ),
-        const Spacer(),
-        Container(
-          padding: const EdgeInsets.only(top: 8),
-          child: const Text(
-            'ToDo List',
-            style: TextStyle(
-              color: white,
-              fontSize: 24,
-            ),
-          ),
-        ),
-        const Spacer(),
-        Container(
-          padding: const EdgeInsets.only(right: 16),
-          child: const Icon(
+        // ...
+        IconButton(
+          icon: const Icon(
             Icons.add,
             color: white,
             size: 30,
           ),
+          onPressed: () {
+            // Použití listCount
+            setState(() {
+              listCount = listCount + 1; // Aktualizace listCount
+            });
+          },
         ),
       ],
     );
