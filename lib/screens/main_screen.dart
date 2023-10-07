@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:todo/model/todo.dart';
 import 'package:todo/screens/app_bar.dart';
-//import 'package:todo/screens/main_todo_list.dart';
-//import 'package:todo/screens/search_box.dart';
 import 'package:todo/screens/styles.dart';
 
 class MainScreen extends StatefulWidget {
