@@ -27,6 +27,7 @@ class _MainScreenState extends State<MainScreen> {
         onListCountUpdated: _incrementListCount,
       ),
       body: ListView.builder(
+          physics: ScrollPhysics(parent: null),
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
             return Container(
