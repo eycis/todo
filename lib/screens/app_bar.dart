@@ -57,7 +57,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   size: 30,
                 ),
                 onPressed: () {
-                  widget.onListCountUpdated(widget.listCount + 1);
+                  widget.onListCountUpdated(widget.listCount);
                 })),
       ],
     );
