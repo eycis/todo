@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/screens/app_bar.dart';
 import 'package:todo/screens/styles.dart';
+import 'package:todo/todo_mockups/mockup.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);
@@ -12,9 +13,19 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int listCount = 1;
 
+  List<ToDo> todos = ToDo.todoList();
+  List<ToDo> todoList = [];
+
   void _incrementListCount(int newCount) {
     setState(() {
       listCount = newCount + 1;
+      _addDefaultNote();
+    });
+  }
+
+  void _addDefaultNote() {
+    setState(() {
+      todos.add(ToDo(todoText: 'Default Note'));
     });
   }
 
@@ -23,22 +34,30 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       backgroundColor: black,
       appBar: CustomAppBar(
-        listCount: listCount,
+        listCount: todos.length,
         onListCountUpdated: _incrementListCount,
       ),
       body: ListView.builder(
-          physics: ScrollPhysics(parent: null),
-          shrinkWrap: true,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              color: grey,
-              child: ListTile(
-                trailing: Icon(Icons.add),
-                title: Text('note'),
+        itemCount: todos.length,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            color: grey,
+            child: ListTile(
+              trailing: IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: () {
+                  setState(() {
+                    todos.removeAt(index);
+                  });
+                },
               ),
-            );
-          },
-          itemCount: listCount),
+              title: Text(todos[index].todoText ?? ''),
+            ),
+          );
+        },
+      ),
     );
   }
 }
