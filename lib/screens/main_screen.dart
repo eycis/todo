@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo/constants/styles.dart';
 import 'package:todo/screens/app_bar.dart';
-import 'package:todo/screens/styles.dart';
 import 'package:todo/todo_mockups/mockup.dart';
 
 class MainScreen extends StatefulWidget {
@@ -39,17 +39,25 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: ListView.builder(
         itemCount: todos.length,
-        physics: const NeverScrollableScrollPhysics(),
+        //physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
+          return Card(
+            elevation: 3,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             color: grey,
             child: ListTile(
+              //title:richText(text:const TextSpan(
+              //text: '${todos[index].title} \n',
+              //style: ...
               trailing: IconButton(
                 icon: Icon(Icons.delete),
+                color: red,
                 onPressed: () {
                   setState(() {
                     todos.removeAt(index);
+                    //přidat smazání i z listu.
                   });
                 },
               ),
@@ -57,6 +65,15 @@ class _MainScreenState extends State<MainScreen> {
             ),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        elevation: 10,
+        backgroundColor: grey,
+        child: const Icon(
+          Icons.add,
+          size: 38,
+        ),
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo/screens/styles.dart';
+import 'package:todo/constants/styles.dart';
 
 class SearchBox extends StatelessWidget {
   const SearchBox({Key? key});

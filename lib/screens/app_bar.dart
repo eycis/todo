@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo/screens/styles.dart';
+import 'package:todo/constants/styles.dart';
 import 'package:todo/screens/main_screen.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -37,6 +37,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           ),
         ),
         const Spacer(),
+        /*
         Container(
           padding: const EdgeInsets.only(top: 8),
           child: const Text(
@@ -47,7 +48,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ),
           ),
         ),
-        const Spacer(),
+        const Spacer(),*/
+        //tohle tlačítko bude nahrazeno floating action button.
         Container(
             padding: const EdgeInsets.only(right: 16),
             child: IconButton(

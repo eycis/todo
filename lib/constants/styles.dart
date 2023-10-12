@@ -6,5 +6,5 @@ abstract class AppPalette {
 
 const Color white = Colors.white;
 const Color grey = Colors.grey;
-const Color black = Colors.black;
-const Color red = Colors.red;
+Color black = Colors.grey.shade900;
+Color red = Color.fromARGB(218, 148, 12, 12);
