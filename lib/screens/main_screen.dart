@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:todo/constants/randoms.dart';
 import 'package:todo/constants/styles.dart';
 import 'package:todo/screens/app_bar.dart';
+import 'package:todo/screens/edit_todo.dart';
 import 'package:todo/todo_mockups/mockup.dart';
 
 //TODO: přidat screen pro rozkliknutí todo.
@@ -28,7 +29,8 @@ class _MainScreenState extends State<MainScreen> {
       todos.add(ToDo(
           todoText: 'Default Note',
           title: 'title',
-          modifiedTime: DateTime.now()));
+          modifiedTime: DateTime.now(),
+          notecolor: getRandomColor()));
       //tady přidat automatické přesunutí kurzoru do inputu.
     });
   }
@@ -52,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Card(
             margin: const EdgeInsets.only(bottom: 20),
-            color: getRandomColor(),
+            color: todos[index].notecolor,
             elevation: 3,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -83,9 +85,10 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.delete),
-                  color: red,
+                  color: black,
                   onPressed: () {
                     setState(() {
+                      //TODO: přidat confirmation window
                       todos.removeAt(index);
                     });
                   },
@@ -97,6 +100,12 @@ class _MainScreenState extends State<MainScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const EditScreen(),
+            ),
+          );
           _addDefaultNote();
         },
         elevation: 10,
