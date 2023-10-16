@@ -26,3 +26,6 @@ TextStyle edit_text_title = TextStyle(
 
 TextStyle text_norm_hint = TextStyle(
     color: grey, fontWeight: FontWeight.normal, fontSize: 14, height: 1.5);
+
+TextStyle edit_text_norm = TextStyle(
+    color: white, fontWeight: FontWeight.normal, fontSize: 14, height: 1.5);

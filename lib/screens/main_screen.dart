@@ -23,7 +23,8 @@ class _MainScreenState extends State<MainScreen> {
   List<ToDo> todos = ToDo.todoList();
   List<ToDo> todoList = [];
 
-  void _addDefaultNote() {
+  /*
+  void _addDefaultNote(ToDo toDo) {
     setState(() {
       //TODO: upravit metodu pro přidání todočka
       todos.add(ToDo(
@@ -34,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
       //tady přidat automatické přesunutí kurzoru do inputu.
     });
   }
-
+*/
   getRandomColor() {
     Random random = Random();
     return randoms[random.nextInt(randoms.length)];
@@ -61,7 +62,25 @@ class _MainScreenState extends State<MainScreen> {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: ListTile(
-                onTap: () async {},
+                onTap: () async {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          EditScreen(note: todos[index]),
+                    ),
+                  );
+                  if (result != null) {
+                    setState(() {
+                      todos.add(ToDo(
+                          todoText: result[1],
+                          title: result[0],
+                          modifiedTime: DateTime.now(),
+                          //TODO: možná tady získat původní barvu?
+                          notecolor: getRandomColor()));
+                    });
+                  }
+                },
                 title: RichText(
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
@@ -99,14 +118,23 @@ class _MainScreenState extends State<MainScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
+        onPressed: () async {
+          final result = await Navigator.push(
             context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const EditScreen(),
+            MaterialPageRoute(
+              builder: (BuildContext context) => EditScreen(),
             ),
           );
-          _addDefaultNote();
+          if (result != null) {
+            setState(() {
+              todos.add(ToDo(
+                modifiedTime: DateTime.now(),
+                title: result[0],
+                todoText: result[1],
+                notecolor: getRandomColor(),
+              ));
+            });
+          }
         },
         elevation: 10,
         backgroundColor: grey,

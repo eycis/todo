@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:todo/constants/styles.dart';
+import 'package:todo/screens/main_screen.dart';
+import 'package:todo/todo_mockups/mockup.dart';
 
 class EditScreen extends StatefulWidget {
-  const EditScreen({super.key});
+  final ToDo? note;
+
+  const EditScreen({super.key, this.note});
 
   @override
   State<EditScreen> createState() => _EditScreenState();
 }
 
 class _EditScreenState extends State<EditScreen> {
+  TextEditingController _titleController = TextEditingController();
+  TextEditingController _contentController = TextEditingController();
+
+  void initState() {
+    if (widget.note != null) {
+      _titleController = TextEditingController(text: widget.note!.title);
+      _contentController = TextEditingController(text: widget.note!.todoText);
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +57,7 @@ class _EditScreenState extends State<EditScreen> {
             child: ListView(
               children: [
                 TextField(
+                  controller: _titleController,
                   style: edit_text_title_hint,
                   decoration: InputDecoration(
                       border: InputBorder.none,
@@ -49,7 +65,9 @@ class _EditScreenState extends State<EditScreen> {
                       hintStyle: edit_text_title_hint),
                 ),
                 TextField(
-                  style: text_norm,
+                  controller: _contentController,
+                  style: edit_text_norm,
+                  maxLines: null,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'your notes',
@@ -61,7 +79,10 @@ class _EditScreenState extends State<EditScreen> {
         ]),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(
+              context, [_titleController.text, _contentController.text]);
+        },
         elevation: 10,
         backgroundColor: grey,
         child: Icon(Icons.save),
