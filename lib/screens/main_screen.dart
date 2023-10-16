@@ -11,7 +11,7 @@ import 'package:todo/todo_mockups/mockup.dart';
 //TODO: přidat screen pro rozkliknutí todo.
 //TODO: přidat edit inputu
 class MainScreen extends StatefulWidget {
-  MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -23,20 +23,8 @@ class _MainScreenState extends State<MainScreen> {
   List<ToDo> todos = ToDo.todoList();
   List<ToDo> todoList = [];
 
-  /*
-  void _addDefaultNote(ToDo toDo) {
-    setState(() {
-      //TODO: upravit metodu pro přidání todočka
-      todos.add(ToDo(
-          todoText: 'Default Note',
-          title: 'title',
-          modifiedTime: DateTime.now(),
-          notecolor: getRandomColor()));
-      //tady přidat automatické přesunutí kurzoru do inputu.
-    });
-  }
-*/
   getRandomColor() {
+    // return type??
     Random random = Random();
     return randoms[random.nextInt(randoms.length)];
   }

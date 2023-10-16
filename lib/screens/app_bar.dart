@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/constants/styles.dart';
-import 'package:todo/screens/main_screen.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget { // TODO(eycis): proč statefull? 
   const CustomAppBar({super.key, required this.listCount});
   final int listCount;
 

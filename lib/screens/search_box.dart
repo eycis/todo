@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/constants/styles.dart';
 
 class SearchBox extends StatelessWidget {
-  const SearchBox({Key? key});
+  const SearchBox({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,15 +12,15 @@ class SearchBox extends StatelessWidget {
         color: grey,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const TextField(
+      child: TextField(
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(top: 5, left: 30),
+          contentPadding: const EdgeInsets.only(top: 5, left: 30),
           prefixIcon: Icon(
             Icons.search,
             color: black,
             size: 20,
           ),
-          prefixIconConstraints: BoxConstraints(
+          prefixIconConstraints: const BoxConstraints(
             maxHeight: 20,
             maxWidth: 25,
           ),
