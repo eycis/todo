@@ -38,10 +38,10 @@ class _EditScreenState extends State<EditScreen> {
               )
             ],
           ),
-          Expanded(
-            child: ListView(
-              children: [
-                TextField(
+          Expanded( // TODO(eycis): je to potřeba?
+            child: ListView( // TODO(eycis): proč listview a ne column?
+              children: [ // TODO(eycis): type
+                TextField( // TODO(eycis): možná přidat autofocus?? potom zvážit vzhledem k tomu že to bude form ,tak nějaký třeba validátor si můžeš zkusit a aby se na tlačítko na klávesnici next změnil focus na ten content, ale to už je složitejší
                   style: edit_text_title_hint,
                   decoration: InputDecoration(
                       border: InputBorder.none,
@@ -64,7 +64,7 @@ class _EditScreenState extends State<EditScreen> {
         onPressed: () {},
         elevation: 10,
         backgroundColor: grey,
-        child: Icon(Icons.save),
+        child: const Icon(Icons.save),
       ),
     );
   }
