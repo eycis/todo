@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/constants/styles.dart';
 import 'package:todo/screens/main_screen.dart';
 import 'package:todo/todo_mockups/mockup.dart';
+import 'package:todo/constants/text_styles.dart';
 
 class EditScreen extends StatefulWidget {
   final ToDo? note;
@@ -27,7 +28,7 @@ class _EditScreenState extends State<EditScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black,
+      backgroundColor: AppPalette.black,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 40, 16, 0),
         //možná  bude třeba pozměnit?
@@ -43,11 +44,11 @@ class _EditScreenState extends State<EditScreen> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                      color: light_grey,
+                      color: AppPalette.light_grey,
                       borderRadius: BorderRadius.circular(10)),
                   child: const Icon(
                     Icons.arrow_back_ios_new,
-                    color: white,
+                    color: AppPalette.white,
                   ),
                 ),
               )
@@ -84,7 +85,7 @@ class _EditScreenState extends State<EditScreen> {
               context, [_titleController.text, _contentController.text]);
         },
         elevation: 10,
-        backgroundColor: grey,
+        backgroundColor: AppPalette.grey,
         child: Icon(Icons.save),
       ),
     );

@@ -6,14 +6,16 @@ class ToDo {
   DateTime modifiedTime;
   Color notecolor;
 
-  ToDo( // TODO(eycis): constructor pro přehlednost vždy first
+  ToDo(
+      // TODO(eycis): constructor pro přehlednost vždy first
       {required this.todoText,
       required this.title,
       required this.modifiedTime,
       required this.notecolor});
 
   static List<ToDo> todoList() {
-    return [ // TODO(eycis): type listu? <ToDo>[....] ??
+    return [
+      // TODO(eycis): type listu? <ToDo>[....] ??
       ToDo(
         todoText: 'Morning Excercise',
         title: '01',

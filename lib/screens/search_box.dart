@@ -9,7 +9,7 @@ class SearchBox extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-        color: grey,
+        color: AppPalette.grey,
         borderRadius: BorderRadius.circular(20),
       ),
       child: TextField(
@@ -17,7 +17,7 @@ class SearchBox extends StatelessWidget {
           contentPadding: const EdgeInsets.only(top: 5, left: 30),
           prefixIcon: Icon(
             Icons.search,
-            color: black,
+            color: AppPalette.black,
             size: 20,
           ),
           prefixIconConstraints: const BoxConstraints(
@@ -26,7 +26,7 @@ class SearchBox extends StatelessWidget {
           ),
           border: InputBorder.none,
           hintText: 'Add a new item',
-          hintStyle: TextStyle(color: black),
+          hintStyle: TextStyle(color: AppPalette.black),
         ),
       ),
     );

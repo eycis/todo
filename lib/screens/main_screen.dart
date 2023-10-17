@@ -7,9 +7,8 @@ import 'package:todo/constants/styles.dart';
 import 'package:todo/screens/app_bar.dart';
 import 'package:todo/screens/edit_todo.dart';
 import 'package:todo/todo_mockups/mockup.dart';
+import 'package:todo/constants/text_styles.dart';
 
-//TODO: přidat screen pro rozkliknutí todo.
-//TODO: přidat edit inputu
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -21,20 +20,41 @@ class _MainScreenState extends State<MainScreen> {
   int listCount = 1;
 
   List<ToDo> todos = ToDo.todoList();
-  List<ToDo> todoList = [];
 
   getRandomColor() {
     // return type??
     Random random = Random();
-    return randoms[random.nextInt(randoms.length)];
+    return ColorConstants
+        .randoms[random.nextInt(ColorConstants.randoms.length)];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black,
-      //TODO: upravit získávání proměnné listCount.
-      appBar: CustomAppBar(listCount: todos.length),
+      backgroundColor: AppPalette.black,
+      drawer: Drawer(
+          backgroundColor: AppPalette.black,
+          child: ListView(
+            children: [
+              ListTile(
+                title: Text(
+                  'Quiz app', // Sem přidejte text nad "item1"
+                  style: title_drawer_text,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const Divider(
+                color: AppPalette.white,
+                thickness: 2,
+                height: 30, // Upravte podle potřeby
+              ),
+              ListTile(
+                title: Text('item1', style: drawer_text),
+                onTap: () {},
+              )
+            ],
+          )),
+      appBar: CustomAppBar(),
       body: ListView.builder(
         padding: EdgeInsets.only(top: 30),
         itemCount: todos.length,
@@ -60,12 +80,9 @@ class _MainScreenState extends State<MainScreen> {
                   );
                   if (result != null) {
                     setState(() {
-                      todos.add(ToDo(
-                          todoText: result[1],
-                          title: result[0],
-                          modifiedTime: DateTime.now(),
-                          //TODO: možná tady získat původní barvu?
-                          notecolor: getRandomColor()));
+                      todos[index].todoText = result[1];
+                      todos[index].title = result[0];
+                      todos[index].modifiedTime = DateTime.now();
                     });
                   }
                 },
@@ -92,7 +109,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.delete),
-                  color: black,
+                  color: AppPalette.black,
                   onPressed: () {
                     setState(() {
                       //TODO: přidat confirmation window
@@ -125,7 +142,7 @@ class _MainScreenState extends State<MainScreen> {
           }
         },
         elevation: 10,
-        backgroundColor: grey,
+        backgroundColor: AppPalette.grey,
         child: const Icon(
           Icons.add,
           size: 38,
