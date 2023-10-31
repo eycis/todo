@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
-import 'screens/main_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/screens/drawer.dart';
+import 'package:todo/screens/main_screen.dart';
+import 'package:todo/todo_mockups/mockup.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  //TODO: můžu tohle vymazat?
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ToDo(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

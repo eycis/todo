@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:todo/screens/main_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:todo/constants/randoms.dart';
+import 'package:todo/constants/styles.dart';
+import 'dart:math';
 
-class ToDo {
+class ToDo extends ChangeNotifier {
   String? todoText;
   String? title;
-  DateTime modifiedTime;
-  Color notecolor;
+  DateTime? modifiedTime;
+  Color? notecolor;
 
   ToDo(
-      // TODO(eycis): constructor pro přehlednost vždy first
-      {required this.todoText,
-      required this.title,
-      required this.modifiedTime,
-      required this.notecolor});
+      {this.todoText = '', this.title = '', this.modifiedTime, this.notecolor});
+
+  Color getRandomColor() {
+    // return type??
+    final Random random = Random();
+    return ColorConstants
+        .randoms[random.nextInt(ColorConstants.randoms.length)];
+  }
 
   static List<ToDo> todoList() {
-    return [
-      // TODO(eycis): type listu? <ToDo>[....] ??
+    return <ToDo>[
       ToDo(
         todoText: 'Morning Excercise',
         title: '01',
@@ -39,5 +46,29 @@ class ToDo {
           modifiedTime: DateTime(2023, 2, 1, 12, 34),
           notecolor: const Color(0xFFF5E6CC)),
     ];
+  }
+
+  void removeTodo(List<ToDo> todos, int index) {
+    todos.removeAt(index);
+    notifyListeners();
+  }
+  //TODO: je tu nutné vždy předávat list todos?
+
+  void addTodo(List<ToDo> todos, String title, String todoText) {
+    todos.add(ToDo(
+      modifiedTime: DateTime.now(),
+      title: title,
+      todoText: todoText,
+      notecolor: getRandomColor(),
+    ));
+    notifyListeners();
+  }
+
+  void editTodo(
+      List<ToDo> todos, int index, String newTitle, String newTodoText) {
+    todos[index].title = newTitle;
+    todos[index].todoText = newTodoText;
+    todos[index].modifiedTime = DateTime.now();
+    notifyListeners();
   }
 }

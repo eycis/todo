@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/constants/styles.dart';
 import 'package:todo/constants/text_styles.dart';
+import 'package:todo/screens/contacts.dart';
 import 'package:todo/screens/main_screen.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -23,15 +24,22 @@ class MyDrawer extends StatelessWidget {
             height: 30,
           ),
           ListTile(
-            //TODO: button z celého listtile.
             title: Text('My Todos', style: drawer_text),
-            leading: IconButton(
-              icon: Icon(Icons.assignment),
-              color: AppPalette.white,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MainScreen()));
+            },
+            leading: const Icon(Icons.assignment),
+            iconColor: AppPalette.white,
+          ),
+          ListTile(
+            title: Text('Contacts', style: drawer_text),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Contacts()));
+            },
+            leading: const Icon(Icons.assignment),
+            iconColor: AppPalette.white,
           ),
         ],
       ),
