@@ -3,7 +3,10 @@ import 'package:todo/constants/styles.dart';
 import 'package:todo/screens/drawer.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+  //const CustomAppBar({Key? key}) : super(key: key);
+
+  final VoidCallback openDrawerCallback;
+  CustomAppBar({required this.openDrawerCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: AppPalette.white,
             size: 30,
           ),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
+          onPressed: openDrawerCallback,
         ));
   }
 

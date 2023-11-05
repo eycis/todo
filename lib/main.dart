@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/screens/app_bar.dart';
 import 'package:todo/screens/drawer.dart';
 import 'package:todo/screens/main_screen.dart';
 import 'package:todo/todo_mockups/mockup.dart';
@@ -17,13 +18,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        //appBar: AppBar(),
+      home: MyDrawer(
         body: MainScreen(),
-        //drawer: MyDrawer(),
-        //home: AppStucture(),
+        pageName: 'Home',
       ),
     );
   }

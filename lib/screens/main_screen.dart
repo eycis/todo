@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     return Consumer<ToDo>(
         builder: (context, value, child) => Scaffold(
               backgroundColor: AppPalette.black,
-              appBar: CustomAppBar(),
+              //drawer: MyDrawer(),
               body: ListView.builder(
                 padding: EdgeInsets.only(top: 30),
                 itemCount: todos.length,
