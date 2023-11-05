@@ -5,6 +5,10 @@ import 'package:todo/screens/contacts.dart';
 import 'package:todo/screens/main_screen.dart';
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({required this.openDrawerCallback});
+
+  final VoidCallback openDrawerCallback;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:todo/screens/drawer.dart';
 import 'package:todo/screens/main_screen.dart';
 import 'package:todo/todo_mockups/mockup.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   //TODO: můžu tohle vymazat?
@@ -19,10 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: MainScreen(),
-          drawer: MyDrawer(),
-        ));
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        //appBar: AppBar(),
+        body: MainScreen(),
+        //drawer: MyDrawer(),
+        //home: AppStucture(),
+      ),
+    );
   }
 }

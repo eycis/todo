@@ -7,7 +7,7 @@ class Contacts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyDrawer(),
+      appBar: AppBar(),
       backgroundColor: AppPalette.black,
       body: ListView(
         children: [
